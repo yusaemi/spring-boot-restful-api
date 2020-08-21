@@ -1,0 +1,4 @@
+#配置logback變數(spring-cloud加載順序為bootstrap優先，須將log變數寫在這裡)
+logback:
+  path: @logback.path@
+  name: @logback.name@

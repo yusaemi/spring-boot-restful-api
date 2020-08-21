@@ -1,0 +1,34 @@
+## jdbc設定
+jdbcSettings:
+  driverClassName: "com.mysql.cj.jdbc.Driver"
+  url: "jdbc:mysql://localhost:3306/master?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8"
+  username: "root"
+  password: "LocalPwd3306"
+
+## 產生的package
+packageName: "idv.module.entity"
+
+## true在非null字段時使用基本型別
+usePrimitiveForNonNullField: false
+
+## primary key的生成策略: "TABLE", "SEQUENCE", "IDENTITY", "AUTO", or null
+generatedValueStrategy: null
+
+## 可選'All' (default) or 'RuleBased'
+tableScanMode: 'RuleBased'
+
+## 若tableScanMode選了RuleBased，掃描僅考慮以下規則的table
+tableScanRules:
+  - tableNames: ["product"]
+
+## 設定轉換為Entity時使用的類別，tableName: 資料表名稱(全名，區分大小寫)，className: 類別名稱(不可加入package名稱)
+classNameRules:
+  - tableName: "product"
+    className: "Product"
+
+## ORM類型轉換
+fieldTypeRules:
+  - {classNames: ["Product"], fieldName: "price", typeName: "BigDecimal"}
+  - {classNames: ["Product"], fieldName: "id", typeName: "Integer"}
+  - {classNames: ["Product"], fieldName: "releaseDate", typeName: "LocalDate"}
+  - {classNames: ["Product"], fieldName: "editDate", typeName: "LocalDateTime"}
