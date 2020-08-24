@@ -52,7 +52,7 @@ public class SwaggerConfig {
                 .build();
     }
 
-    private List<Response> getCustomizedResponseMessages(){
+    private List<Response> getCustomizedResponseMessages() {
         List<Response> responses = singletonList(new ResponseBuilder().code("400").description("bad Request").build());
         return responses;
     }

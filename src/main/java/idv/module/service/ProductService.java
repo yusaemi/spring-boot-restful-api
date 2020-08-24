@@ -1,26 +1,20 @@
 package idv.module.service;
 
 import com.google.common.base.CaseFormat;
-import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import idv.module.entity.Product;
 import idv.module.entity.QProduct;
 import idv.module.entity.pojo.ProductPojo;
 import idv.module.repository.ProductDao;
 import idv.module.service.dto.ProductInfo;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
-import javax.annotation.PostConstruct;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Arrays;
-
-import static java.util.Objects.isNull;
 
 /**
  * ProductService. 2020/8/18 上午 10:37
@@ -29,13 +23,11 @@ import static java.util.Objects.isNull;
  * @version 1.0.0
  **/
 @Service
+@RequiredArgsConstructor
 public class ProductService {
 
-    @Autowired
-    private ProductDao productDao;
-
-    @Autowired
-    private JPAQueryFactory jpaQueryFactory;
+    private final ProductDao productDao;
+    private final JPAQueryFactory jpaQueryFactory;
 
     /* 代理資源共享，改為IOC
     @PersistenceContext
