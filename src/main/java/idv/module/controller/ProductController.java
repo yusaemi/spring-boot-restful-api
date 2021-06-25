@@ -30,8 +30,12 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(tags = "商品處理Controller")
 public class ProductController {
 
+    private final ProductService productService;
+
     @Autowired
-    private ProductService productService;
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
 
     /**
      * 取得商品
