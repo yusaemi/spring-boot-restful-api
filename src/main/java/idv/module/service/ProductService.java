@@ -7,8 +7,8 @@ import idv.module.entity.QProduct;
 import idv.module.entity.pojo.ProductPojo;
 import idv.module.repository.ProductDao;
 import idv.module.service.dto.ProductInfo;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
@@ -23,17 +23,11 @@ import java.util.Arrays;
  * @version 1.0.0
  **/
 @Service
+@RequiredArgsConstructor
 public class ProductService {
 
     private final ProductDao productDao;
-
     private final JPAQueryFactory jpaQueryFactory;
-
-    @Autowired
-    public ProductService(ProductDao productDao, JPAQueryFactory jpaQueryFactory) {
-        this.productDao = productDao;
-        this.jpaQueryFactory = jpaQueryFactory;
-    }
 
     /* 代理資源共享，改為IOC
     @PersistenceContext
