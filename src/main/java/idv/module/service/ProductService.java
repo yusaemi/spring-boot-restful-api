@@ -3,7 +3,6 @@ package idv.module.service;
 import com.google.common.base.CaseFormat;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import idv.module.entity.Product;
-import idv.module.entity.QProduct;
 import idv.module.entity.pojo.ProductPojo;
 import idv.module.repository.ProductDao;
 import idv.module.service.dto.ProductInfo;
@@ -43,12 +42,12 @@ public class ProductService {
     /**
      * 取得商品
      *
-     * @param id
-     * @return
+     * @param id 商品流水號
+     * @return ProductInfo
      */
     public ProductInfo get(Integer id) {
 
-        QProduct qProduct = QProduct.product;
+//        QProduct qProduct = QProduct.product;
 
         /* 使用JPA查詢 */
         Product product = productDao.findById(id).orElse(new Product());
@@ -78,8 +77,7 @@ public class ProductService {
     /**
      * 新增商品
      *
-     * @param productPojo
-     * @return
+     * @param productPojo 商品物件
      */
     public void create(ProductPojo productPojo) {
         Product product = new Product();
@@ -91,9 +89,8 @@ public class ProductService {
     /**
      * 更新完整商品
      *
-     * @param id
-     * @param productPojo
-     * @return
+     * @param id 商品流水號
+     * @param productPojo 商品物件
      */
     public void update(Integer id, ProductPojo productPojo) {
         Product product = new Product();
@@ -105,9 +102,8 @@ public class ProductService {
     /**
      * 更新商品部分資料
      *
-     * @param id
-     * @param productPojo
-     * @return
+     * @param id 商品流水號
+     * @param productPojo 商品物件
      */
     public void updateMerge(Integer id, ProductPojo productPojo) {
 
@@ -136,7 +132,7 @@ public class ProductService {
     /**
      * 刪除商品
      *
-     * @param id
+     * @param id 商品流水號
      */
     public void delete(Integer id) {
         productDao.deleteById(id);
