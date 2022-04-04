@@ -3,7 +3,7 @@ jdbcSettings:
   driverClassName: "com.mysql.cj.jdbc.Driver"
   url: "jdbc:mysql://localhost:3306/master?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8"
   username: "root"
-  password: "LocalPwd3306"
+  password: "root"
 
 ## 產生的package
 packageName: "idv.module.entity"
