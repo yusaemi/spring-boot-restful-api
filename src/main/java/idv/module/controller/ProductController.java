@@ -54,7 +54,7 @@ public class ProductController {
     @Operation(summary = "新增商品")
     @ApiResponse(responseCode = "204", description = "商品已新增")
     @PostMapping("")
-    public ResponseEntity<?> create(@RequestBody ProductPojo productPojo) {
+    public ResponseEntity<Void> create(@RequestBody ProductPojo productPojo) {
         productService.create(productPojo);
         return ResponseEntity.noContent().build();
     }
@@ -69,7 +69,7 @@ public class ProductController {
     @Operation(summary = "更新完整商品")
     @ApiResponse(responseCode = "204", description = "完整商品已更新")
     @PutMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable("id") Integer id, @RequestBody ProductPojo productPojo) {
+    public ResponseEntity<Void> update(@PathVariable("id") Integer id, @RequestBody ProductPojo productPojo) {
         productService.update(id, productPojo);
         return ResponseEntity.noContent().build();
     }
@@ -84,7 +84,7 @@ public class ProductController {
     @Operation(summary = "更新商品部分資料")
     @ApiResponse(responseCode = "204", description = "商品部分資料已更新")
     @PatchMapping("/{id}")
-    public ResponseEntity<?> updateMerge(@PathVariable("id") Integer id, @RequestBody ProductPojo productPojo) {
+    public ResponseEntity<Void> updateMerge(@PathVariable("id") Integer id, @RequestBody ProductPojo productPojo) {
         productService.updateMerge(id, productPojo);
         return ResponseEntity.noContent().build();
     }
@@ -98,7 +98,7 @@ public class ProductController {
     @Operation(summary = "刪除商品")
     @ApiResponse(responseCode = "204", description = "商品已刪除")
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable("id") Integer id) {
+    public ResponseEntity<Void> delete(@PathVariable("id") Integer id) {
         productService.delete(id);
         return ResponseEntity.noContent().build();
     }

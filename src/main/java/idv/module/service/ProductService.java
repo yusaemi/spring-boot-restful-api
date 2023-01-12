@@ -3,7 +3,6 @@ package idv.module.service;
 import com.google.common.base.CaseFormat;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import idv.module.entity.Product;
-import idv.module.entity.QProduct;
 import idv.module.entity.pojo.ProductPojo;
 import idv.module.repository.ProductDao;
 import idv.module.service.dto.ProductInfo;
@@ -48,7 +47,7 @@ public class ProductService {
      */
     public ProductInfo get(Integer id) {
 
-        QProduct qProduct = QProduct.product;
+//        QProduct qProduct = QProduct.product;
 
         /* 使用JPA查詢 */
         Product product = productDao.findById(id).orElse(new Product());
