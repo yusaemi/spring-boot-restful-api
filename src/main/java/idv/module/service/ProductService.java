@@ -1,7 +1,6 @@
 package idv.module.service;
 
 import com.google.common.base.CaseFormat;
-import com.querydsl.jpa.impl.JPAQueryFactory;
 import idv.module.entity.Product;
 import idv.module.entity.pojo.ProductPojo;
 import idv.module.repository.ProductDao;
@@ -26,18 +25,6 @@ import java.util.Arrays;
 public class ProductService {
 
     private final ProductDao productDao;
-    private final JPAQueryFactory jpaQueryFactory;
-
-    /* 代理資源共享，改為IOC
-    @PersistenceContext
-    private EntityManager entityManager;
-
-    @PostConstruct
-    public void init() {
-        jpaQueryFactory = new JPAQueryFactory(entityManager);
-    }
-     */
-
 
     /**
      * 取得商品
@@ -46,32 +33,13 @@ public class ProductService {
      * @return ProductInfo
      */
     public ProductInfo get(Integer id) {
-
-//        QProduct qProduct = QProduct.product;
-
         /* 使用JPA查詢 */
         Product product = productDao.findById(id).orElse(new Product());
-
-        /**
-         * 可使用QueryDSL方式查詢
-         */
-        /* 使用jpaQueryFactory建立查詢
-        JPAQuery<Product> jpaQuery = jpaQueryFactory.selectFrom(qProduct).where(qProduct.id.eq(id));
-        Product product = jpaQuery.fetchOne();
-        if (isNull(product)) {
-            product = new Product();
-        }
-         */
-
-        /* 使用JPA提供介面繼承QueryDSL
-        Product product = productDao.findOne(qProduct.id.eq(id)).orElse(new Product());
-         */
 
         ProductInfo productInfo = new ProductInfo();
         BeanUtils.copyProperties(product, productInfo);
 
         return productInfo;
-
     }
 
     /**
