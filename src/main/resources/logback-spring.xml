@@ -6,7 +6,7 @@
     <!-- Log分類 -->
     <springProperty scope="context" name="log.name" source="logback.name"/>
     <!-- Log輸出格式 -->
-    <property name="log.pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] traceId:[%X{X-B3-TraceId:-}] %-5level %logger{20} - [%method,%line] - %msg%n"/>
+    <property name="log.pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] traceId:[%X{traceId:-}] spanId:[%X{spanId:-}] %-5level %logger{20} - [%method,%line] - %msg%n"/>
     <!-- Log最大的歷史天數 -->
     <property name="log.keep" value="30"/>
     <!-- Log保留最大容量 -->
