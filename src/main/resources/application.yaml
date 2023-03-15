@@ -25,6 +25,7 @@ spring:
     properties:
       hibernate:
         default_schema: @database.schema@
+        dialect: org.hibernate.dialect.MySQL8Dialect
 
 server:
   port: @server.port@
