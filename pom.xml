@@ -7,7 +7,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.4</version><!--update spring-boot version -->
+        <version>3.2.0-M3</version><!--update spring-boot version -->
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -17,9 +17,30 @@
     <name>spring-boot-restful-api</name>
     <description>Spring Boot搭建RestFul Api Server</description>
 
+    <repositories>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
     <properties>
-        <java.version>17</java.version>
-        <spring-cloud.version>2022.0.0</spring-cloud.version>
+        <java.version>21</java.version>
+        <spring-cloud.version>2023.0.0-M2</spring-cloud.version>
         <springdoc.version>2.2.0</springdoc.version>
         <mysql.version>8.0.31</mysql.version>
         <adt-maven.version>1.1.3</adt-maven.version>
@@ -211,7 +232,7 @@
                 <database.driver.name>com.mysql.cj.jdbc.Driver</database.driver.name>
                 <database.url>jdbc:mysql://localhost:3306/master?useUnicode=true<![CDATA[&]]>characterEncoding=utf8<![CDATA[&]]>useSSL=false<![CDATA[&]]>serverTimezone=GMT%2B8</database.url>
                 <database.username>root</database.username>
-                <database.password>root</database.password>
+                <database.password>atlantis3173</database.password>
                 <database.schema>master</database.schema>
                 <logback.path>${project.basedir}/logs</logback.path>
                 <logback.name>${project.name}</logback.name>
