@@ -167,7 +167,7 @@
     </dependencyManagement>
 
     <build>
-        <finalName>spring-boot-restful-api</finalName>
+        <finalName>${project.artifactId}</finalName>
         <plugins>
             <!-- jpa自動生成實體類，相關配置完成後使用mvn jpa-entity-generator:generateAll -e產生實體類別 -->
             <plugin>
