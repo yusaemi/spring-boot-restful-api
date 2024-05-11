@@ -1,7 +1,7 @@
 # Spring Boot搭建RestFul Api Server
 
 ## 準備作業
-此範本需要`MySQL`資料庫及`JDK17`環境  
+此範本需要`MySQL`資料庫及`JDK21`環境  
 支援`lombok plugin`
 
 #### Create Table(default schema: master)
