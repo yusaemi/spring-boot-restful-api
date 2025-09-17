@@ -12,8 +12,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SpringBootRestfulApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(SpringBootRestfulApplication.class, args);
+    void main() {
+        SpringApplication.run(SpringBootRestfulApplication.class);
     }
 
 }
