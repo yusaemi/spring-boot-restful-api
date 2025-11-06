@@ -1,0 +1,25 @@
+version: "3.7"
+services:
+  ## mariadb 11.8.2
+  mariadb1182:
+    container_name: mariadb_11_8_2
+    image: mariadb:11.8.2
+    ports:
+      - "3306:3306"
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_ROOT_HOST: "%"
+      MARIADB_DATABASE: master
+      TZ: Asia/Taipei
+      LANG: C.UTF-8
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d
+    command:
+      - --lower_case_table_names=1
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --default-time-zone=+08:00
+      - --bind-address=0.0.0.0
+    security_opt:
+      - seccomp:unconfined
+    restart: always

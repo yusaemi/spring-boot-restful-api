@@ -94,29 +94,46 @@
 
     </appender>
 
-    <!-- 输出SQL至console和log -->
-    <logger name="org.hibernate.SQL" additivity="false" level="DEBUG">
-        <appender-ref ref="file_all" />
-        <appender-ref ref="console"/>
-    </logger>
-    <!-- 输出SQL Param至console和log -->
-    <logger name="org.hibernate.type.descriptor.sql.BasicBinder" additivity="false" level="TRACE">
-        <appender-ref ref="file_all" />
-        <appender-ref ref="console"/>
-    </logger>
+    <springProfile name="dev">
 
-    <root level="debug">
-        <appender-ref ref="file_all"/>
-        <appender-ref ref="console"/>
-    </root>
+        <!-- 输出SQL至console -->
+        <logger name="org.hibernate.SQL" additivity="false" level="DEBUG">
+            <appender-ref ref="console"/>
+        </logger>
+        <!-- 输出SQL Param至console -->
+        <logger name="org.hibernate.type.descriptor.sql.BasicBinder" additivity="false" level="TRACE">
+            <appender-ref ref="console"/>
+        </logger>
 
-    <root level="error">
-        <appender-ref ref="file_error"/>
-    </root>
+        <root level="info">
+            <appender-ref ref="console" />
+        </root>
+    </springProfile>
 
-    <!--系統操作Log默認級別-->
-    <root level="info">
-        <appender-ref ref="file_info"/>
-    </root>
+    <springProfile name="!dev">
+
+        <!-- 输出SQL至log -->
+        <logger name="org.hibernate.SQL" additivity="false" level="DEBUG">
+            <appender-ref ref="file_all" />
+        </logger>
+        <!-- 输出SQL Param至log -->
+        <logger name="org.hibernate.type.descriptor.sql.BasicBinder" additivity="false" level="TRACE">
+            <appender-ref ref="file_all" />
+        </logger>
+
+        <root level="debug">
+            <appender-ref ref="file_all"/>
+            <appender-ref ref="console"/>
+        </root>
+
+        <root level="error">
+            <appender-ref ref="file_error"/>
+        </root>
+
+        <!--系統操作Log默認級別-->
+        <root level="info">
+            <appender-ref ref="file_info"/>
+        </root>
+    </springProfile>
 
 </configuration>
